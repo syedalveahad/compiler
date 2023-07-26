@@ -1,0 +1,89 @@
+#include<iostream>
+using namespace std;
+
+int c=0, i=0, f=0;
+
+void state3(string s)
+{
+
+    if(i>=s.size())
+    {
+        return;
+    }
+    else if(s[i]-'0'>=0 && s[i]-'0'<=9)
+    {
+        c++;
+        i++;
+        state3(s);
+    }
+}
+
+void state2(string s)
+{
+    f=1;
+    if(i>=s.size())
+    {
+        return;
+    }
+    else if(s[i]-'0'>=0 && s[i]-'0'<=9)
+    {
+        c++;
+        i++;
+        state3(s);
+    }
+}
+
+void state1(string s)
+{
+
+    if(i>=s.size())
+    {
+        return;
+    }
+    else if(s[i]-'0'>=0 && s[i]-'0'<=9)
+    {
+        c++;
+        i++;
+        state1(s);
+    }
+    else if(s[i]=='.')
+    {
+        c++;
+        i++;
+        state2(s);
+    }
+}
+
+void state0(string s)
+{
+
+    if(i>=s.size())
+    {
+        return;
+    }
+    else if(s[i]-'0'>=0 && s[i]-'0'<=9)
+    {
+        c++;
+        i++;
+        state1(s);
+    }
+    else if(s[i]=='.')
+    {
+        c++;
+        i++;
+        state2(s);
+    }
+}
+
+int main()
+{
+    string s;
+    cin>>s;
+    state0(s);
+    if(c==s.size() && f==1)
+        cout << "Valid" << endl;
+    else
+        cout << "Invalid" << endl;
+
+    return 0;
+}
