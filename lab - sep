@@ -1,0 +1,26 @@
+main@bubt-HP-ProDesk-600-G4-PCI-MT:~$ sudo apt-get update
+main@bubt-HP-ProDesk-600-G4-PCI-MT:~$ cd Downloads
+main@bubt-HP-ProDesk-600-G4-PCI-MT:~/Downloads$ mkdir Compiler
+main@bubt-HP-ProDesk-600-G4-PCI-MT:~/Downloads$ cd Compiler
+main@bubt-HP-ProDesk-600-G4-PCI-MT:~/Downloads/Compiler$ touch alve.l
+main@bubt-HP-ProDesk-600-G4-PCI-MT:~/Downloads/Compiler$ gedit alve.l
+main@bubt-HP-ProDesk-600-G4-PCI-MT:~/Downloads/Compiler$ lex alve.l
+main@bubt-HP-ProDesk-600-G4-PCI-MT:~/Downloads/Compiler$ gedit alve.l
+
+main@bubt-HP-ProDesk-600-G4-PCI-MT:~/Downloads/Compiler$ 
+main@bubt-HP-ProDesk-600-G4-PCI-MT:~/Downloads/Compiler$ lex alve.l
+main@bubt-HP-ProDesk-600-G4-PCI-MT:~/Downloads/Compiler$ lex alve.l
+main@bubt-HP-ProDesk-600-G4-PCI-MT:~/Downloads/Compiler$ ./a.out
+bash: ./a.out: No such file or directory
+main@bubt-HP-ProDesk-600-G4-PCI-MT:~/Downloads/Compiler$ gcc lex yy.l
+gcc: error: lex: No such file or directory
+gcc: error: yy.l: No such file or directory
+gcc: fatal error: no input files
+compilation terminated.
+main@bubt-HP-ProDesk-600-G4-PCI-MT:~/Downloads/Compiler$ gcc lex yy.c
+gcc: error: lex: No such file or directory
+gcc: error: yy.c: No such file or directory
+gcc: fatal error: no input files
+compilation terminated.
+main@bubt-HP-ProDesk-600-G4-PCI-MT:~/Downloads/Compiler$ gcc lex.yy.c
+main@bubt-HP-ProDesk-600-G4-PCI-MT:~/Downloads/Compiler$ ./a.out
