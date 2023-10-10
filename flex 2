@@ -1,0 +1,36 @@
+/*** Definition Section ***/
+%{
+int identifier=0;
+int comment=0;
+int keyword=0;
+
+%}
+
+/*** Rule Section ***/
+%%
+^[a-z]*[A-Z][_]*+[a-z]*[A-Z]*[0-9]* {
+ identifier++; if(identifier!=0) printf("Valid identifier\n"); else printf("InValid\n");
+ }
+ 
+\/\/[^\n]* {
+ comment++; if(comment!=0) printf("Valid comment\n"); else printf("InValid\n");
+ }
+ 
+\/\*[^*]*\*+([^/*][^*]*\*+)*\/ {
+ comment++; if(comment!=0) printf("Valid comment\n"); else printf("InValid\n");
+ }
+
+[0-9]+(\.[0-9]+)?(e[+-]?[0-9]+)? {
+ keyword++; if(keyword!=0) printf("Valid keyword\n"); else printf("InValid\n");
+ }
+
+\n {return 0;}
+%%
+
+/*** Code Section ***/
+int yywrap(){}
+int main(){
+yylex();
+
+return 0;
+}
