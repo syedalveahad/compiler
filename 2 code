@@ -1,0 +1,18 @@
+/*** Definition Section ***/
+%{
+int valid=0;
+%}
+
+/*** Rule Section ***/
+%%
+^[a]+[b]* valid++;
+\n {return 0;}
+%%
+
+/*** Code Section ***/
+int yywrap(){}
+int main(){
+yylex();
+if(valid!=0) printf("Valid String\n");
+else    printf("Not Valid String\n");
+return 
